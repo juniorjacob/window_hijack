@@ -4,8 +4,9 @@ You can read a full write-up at: https://secret.club/2020/05/12/abusing-composit
 
 ## Changes
 Added notes to what is necessary for this to work inside of a manually mapped driver, and describes why it only works in the IOCTL handler.
-
 The notes can be located in window_hijack\includes\dispatch\control.cpp.
+
+Gist including all necessary code to wrap and run ValidateHwnd: https://gist.github.com/juniorjacob/7db2b91847eca8cc870c75c224fe9e0b.
 
 ## Usage
 To use the project as-is:

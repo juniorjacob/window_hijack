@@ -110,6 +110,17 @@ namespace nt
 	};
 
 	// Win32k structures
+	typedef struct _wnd_user_info {
+		HANDLE window;
+		HANDLE region;
+		char unk1[0x8];
+		DWORD exstyle;
+		DWORD style;
+		void* instance_handle;
+		char unk2[0x50];
+		void* wnd_procedure;
+	} wnd_user_info, *pwnd_user_info;
+	
 	struct tag_thread_info
 	{
 		PETHREAD owning_thread;
@@ -117,8 +128,28 @@ namespace nt
 
 	struct tag_wnd
 	{
-		char pad_0[ 0x10 ];
+		HANDLE window;
+		void* win32_thread;
 		tag_thread_info* thread_info;
+		char unk2[0x8];
+		tag_wnd* self;
+		wnd_user_info* user_info;
+		HANDLE region;
+		void* region_info;
+		tag_wnd* parent;
+		tag_wnd* next;
+		void* unk4;
+		tag_wnd* child;
+		tag_wnd* previous;
+		void* unk5;
+		void* win32;
+		void* global_info_link;
+		char unk6[0x48];
+		DWORD user_procedures_link;
+		char unk7[0x1c];
+		DWORD procedure_flag;
+		char unk8[0x3C];
+		void* procedure_table;
 	};
 }
 
